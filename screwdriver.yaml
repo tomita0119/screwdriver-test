@@ -9,3 +9,7 @@ jobs:
     requires: [~pr, ~commit]
     steps:
       - greet: echo hello
+  publish:
+    requires: main
+    steps:
+      - publish: echo publish
