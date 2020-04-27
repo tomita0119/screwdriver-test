@@ -1,0 +1,11 @@
+shared:
+  image: node:12
+  steps:
+    - init: npm install
+    - test: npm test
+
+jobs:
+  main:
+    requires: [~pr, ~commit]
+    steps:
+      - greet: echo hello
