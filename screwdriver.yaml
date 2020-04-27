@@ -1,15 +1,15 @@
 shared:
-  image: node:12
-  steps:
-    - init: npm install
-    - test: npm test
+    image: node:8
+
+parameters:
+    region: "us-west-1"
+    az:
+        value: "1"
+        description: "default availability zone"
 
 jobs:
-  main:
-    requires: [~pr, ~commit]
-    steps:
-      - greet: echo hello
-  publish:
-    requires: main
-    steps:
-      - publish: echo publish
+    main:
+        requires: [~pr, ~commit]
+        steps:
+            - step1: 'echo "Region: $(meta get parameters.region.value)"'
+            - step2: 'echo "AZ: $(meta get parameters.az.value)"'
