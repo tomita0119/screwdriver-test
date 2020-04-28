@@ -8,6 +8,10 @@ jobs:
     requires: [~pr, ~commit]
     steps:
       - greet: echo hello
+  build:
+    requires: [~pr, ~commit]
+    steps:
+      - init: npm install -y nginx
   publish:
     requires: main
     steps:
