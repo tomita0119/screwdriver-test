@@ -1,15 +1,14 @@
 shared:
-    image: node:8
-
-parameters:
-    region: "us-west-1"
-    az:
-        value: "1"
-        description: "default availability zone"
+  image: node:12
+  steps:
+    - init: npm install -y nginx
 
 jobs:
-    main:
-        requires: [~pr, ~commit]
-        steps:
-            - step1: 'echo "Region: $(meta get parameters.region.value)"'
-            - step2: 'echo "AZ: $(meta get parameters.az.value)"'
+  main:
+    requires: [~pr, ~commit]
+    steps:
+      - greet: echo hello
+  publish:
+    requires: main
+    steps:
+      - publish: echo publish
