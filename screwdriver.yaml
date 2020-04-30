@@ -15,4 +15,4 @@ jobs:
   publish:
     requires: main
     steps:
-      - publish: echo publish
+      - publish: echo published!
