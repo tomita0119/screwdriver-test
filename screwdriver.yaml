@@ -7,7 +7,7 @@ jobs:
   main:
     requires: [~pr, ~commit]
     steps:
-      - greet: echo hello
+      - greet: ls -al
   build:
     requires: [~pr, ~commit]
     steps:
