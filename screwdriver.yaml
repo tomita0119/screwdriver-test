@@ -18,3 +18,7 @@ jobs:
     steps:
       - publish: echo published!
       - deploy: cp ./src/html/index.html $SD_ARTIFACTS_DIR
+  deploy:
+    requires: publish
+    steps:
+      - deploy: ls $SD_ARTIFACTS_DIR
