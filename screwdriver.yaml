@@ -17,4 +17,4 @@ jobs:
     requires: main
     steps:
       - publish: echo published!
-      - deploy: cp ./src/html/index.html /root/sd-in-a-box/nginx/html
+      - deploy: cp ./src/html/index.html $SD_ARTIFACTS_DIR
