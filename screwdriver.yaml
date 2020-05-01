@@ -4,21 +4,17 @@ shared:
     - init: npm install -y nginx
 
 jobs:
-  main:
+  check:
     requires: [~pr, ~commit]
     steps:
       - who: whoami
-      - greet: ls -al
+      - list: ls -al
   build:
     requires: [~pr, ~commit]
     steps:
-      - init: npm install -y nginx
-  publish:
-    requires: main
-    steps:
-      - publish: echo published!
-      - deploy: cp ./src/html/index.html $SD_ARTIFACTS_DIR
-  deploy:
-    requires: publish
-    steps:
-      - deploy: ls $SD_ARTIFACTS_DIR
+      - init: docker build -t screwdriver_registry_1:5000/tomita/myapp:latest
+      - publish: docker push screwdriver_registry_1:5000/tomita/myapp:latest 
+  # deploy:
+  #   requires: build
+  #   steps:
+  #     - 
