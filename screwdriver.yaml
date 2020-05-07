@@ -1,5 +1,5 @@
 shared:
-  image: dockercore/docker
+  image: docker-dev:1.9.1
   steps:
     - init: docker --version
 
