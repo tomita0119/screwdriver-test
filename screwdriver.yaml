@@ -1,7 +1,7 @@
 shared:
-  image: docker:latest
+  image: node:12
   steps:
-    - init: dpcker --version
+    - init: npm install -y nginx
 
 jobs:
   check:
