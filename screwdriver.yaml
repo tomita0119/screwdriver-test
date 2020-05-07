@@ -1,7 +1,7 @@
 shared:
-  image: node:12
+  image: dockercore/docker
   steps:
-    - init: npm install -y nginx
+    - init: docker --version
 
 jobs:
   check:
