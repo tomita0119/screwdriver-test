@@ -1,7 +1,5 @@
 shared:
-  image: node:12
-  steps:
-    - init: npm install -y nginx
+  image: docker:latest
 
 jobs:
   check:
@@ -12,7 +10,7 @@ jobs:
   build:
     requires: [~pr, ~commit]
     steps:
-      - init: docker build -t screwdriver_registry_1:5000/tomita/myapp:latest
+      - init: docker build -t screwdriver_registry_1:5000/tomita/myapp:latest ./src/app/
       - publish: docker push screwdriver_registry_1:5000/tomita/myapp:latest 
   # deploy:
   #   requires: build
