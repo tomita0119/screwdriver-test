@@ -1,5 +1,5 @@
 shared:
-  image: nodejs:12
+  image: node:12
   steps:
     - init: npm -v
 
