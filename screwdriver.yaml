@@ -1,5 +1,7 @@
 shared:
   image: docker:latest
+  steps:
+    - init: dpcker --version
 
 jobs:
   check:
