@@ -1,7 +1,7 @@
 shared:
-  image: node:12
+  image: docker-dev:1.9.1
   steps:
-    - init: npm -v
+    - init: docker --version
 
 jobs:
   check:
