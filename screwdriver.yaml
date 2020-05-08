@@ -1,7 +1,7 @@
 shared:
-  image: docker-dev:1.9.1
+  image: node:12
   steps:
-    - init: docker --version
+    - init: npm -v
 
 jobs:
   check:
@@ -9,11 +9,13 @@ jobs:
     steps:
       - who: whoami
       - list: ls -al
-  build:
+  version:
     requires: [~pr, ~commit]
-    steps:
-      - init: docker build -t screwdriver_registry_1:5000/tomita/myapp:latest ./src/app/
-      - publish: docker push screwdriver_registry_1:5000/tomita/myapp:latest 
+  # build:
+  #   requires: [~pr, ~commit]
+  #   steps:
+  #     - init: docker build -t screwdriver_registry_1:5000/tomita/myapp:latest ./src/app/
+  #     - publish: docker push screwdriver_registry_1:5000/tomita/myapp:latest 
   # deploy:
   #   requires: build
   #   steps:
