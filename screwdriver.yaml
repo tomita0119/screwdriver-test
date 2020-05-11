@@ -1,16 +1,19 @@
-shared:
-  image: docker:latest
-  steps:
-    - init: docker --version
+# shared:
+#   image: docker:latest
+#   steps:
+#     - init: docker --version
 
 jobs:
-  check:
+  main:
     requires: [~pr, ~commit]
-    steps:
-      - who: whoami
-      - list: ls -al
-  version:
-    requires: [~pr, ~commit]
+    template: nodejs/test@stable
+  # check:
+  #   requires: [~pr, ~commit]
+  #   steps:
+  #     - who: whoami
+  #     - list: ls -al
+  # version:
+  #   requires: [~pr, ~commit]
   # build:
   #   requires: [~pr, ~commit]
   #   steps:
